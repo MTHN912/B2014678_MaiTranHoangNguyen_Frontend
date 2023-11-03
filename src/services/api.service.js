@@ -1,15 +1,13 @@
-import axios from "axios";
+import axios from 'axios';
 
-const commonConfig = {
-    headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-    },
-};
-
-export default (baseURL) => {
+function createApiClient(baseURL) {
     return axios.create({
         baseURL,
-        ...commonConfig,
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
     });
-};
+}
+
+export default createApiClient;
